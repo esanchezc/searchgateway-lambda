@@ -4,6 +4,7 @@
 #        You can use this code in any way you like at your own risk
 # ******************************************************************************************************************
 
+
 def searchhome():
     return """
 <!DOCTYPE html>
