@@ -5,7 +5,12 @@ phases:
       python: 3.10
   build:
     commands:
+      - echo "Validating template..."
+      - aws cloudformation validate-template --template-body file://search-gateway.yaml
+      - echo "Packaging template..."
       - aws cloudformation package --template-file search-gateway.yaml --s3-bucket artifacts-bucket-gl-esanchez --output-template-file search.yaml
+      - echo "Showing packaged template..."
+      - cat search.yaml
 
 artifacts:
   type: zip
