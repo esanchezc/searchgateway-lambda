@@ -1,15 +1,12 @@
-import search_page, json
+import json
+import logging
 
-# Lambda execution starts here
-
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def lambda_handler(event, context):
-    response_html = {
+    logger.info("Function called")
+    return {
         "statusCode": 200,
-        "statusDescription": "200 OK",
-        "isBase64Encoded": False,
-        "headers": {"Content-Type": "text/html; charset=utf-8"},
+        "body": "Hello World"
     }
-    response_html["body"] = search_page.searchhome()
-
-    return response_html
