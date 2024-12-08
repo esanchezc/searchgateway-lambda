@@ -5,6 +5,8 @@ phases:
       python: 3.10
   build:
     commands:
+      - echo "Listing directory contents..."
+      - ls -la
       - echo "Validating template..."
       - aws cloudformation validate-template --template-body file://search-gateway.yaml
       - echo "Packaging template..."
@@ -13,7 +15,8 @@ phases:
       - cat search.yaml
 
 artifacts:
-  type: zip
   files:
     - search-gateway.yaml
     - search.yaml
+    - lambda_function.py
+    - search_page.py
